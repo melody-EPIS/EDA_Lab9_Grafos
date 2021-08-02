@@ -43,11 +43,24 @@ public class Recorridos{
 		
 	}
 	public static void VisitDFS(int v,int[] visitado) {
-		//me falta
+		visitado[v]=1;
+		System.out.print(v+" ");
+		Iterator<Integer> miIter=listaNodo[v].listIterator();
+		while(miIter.hasNext()) {
+			int b=miIter.next();
+				if(visitado[b]==0) {
+					VisitDFS(b,visitado);
+				}
+		}
 	}
 	
 	public static void dFS(int v) {
-		//me falta
+		int visitado[]=new int[nodo];
+		VisitDFS(v,visitado);
+		for(int i=1;i<nodo;i++) {
+			if(visitado[i]==0)
+				VisitDFS(i,visitado);
+		}
 		
 	}
 }
